@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>go go go</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    
+    <!-- {{go}} -->
+
+
+    <!-- <p>
+        {% for item in go %}
+        <li>{{item['full_name']}}</li>
+        <li>{{item}}</li>
+        {% endfor %}
+    </p> -->
+
+
+    <table class="tb" style="width:100%">
+        <tr>
+          <th>id</th>
+          <th>full_name</th> 
+          <th>gender</th>
+        </tr>
+        <tr>
+        {% for item in go %}
+          <td>{{item['id']}}</td>
+          <td>{{item['full_name']}}</td> 
+          <td>{{item['gender']}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+</body>
+</html>

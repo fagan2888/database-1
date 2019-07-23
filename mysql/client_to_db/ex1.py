@@ -16,6 +16,7 @@ try:
         cursor.execute(sql)
 
         result = cursor.fetchall()
+        # print(result)
         for i in result:
             for g in actors:
                 if i['full_name'] == g:
