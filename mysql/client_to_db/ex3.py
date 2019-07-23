@@ -1,7 +1,5 @@
 import pymysql
 
-# actors = ['Andrew Adamson', 'William Addy', 'Seth Adkins']
-
 # Connect to the database
 connection = pymysql.connect(host='localhost',
                              user='root',
@@ -13,17 +11,13 @@ connection = pymysql.connect(host='localhost',
 try:
     with connection.cursor() as cursor:
         # Create a new record
-        sql = "INSERT INTO `actors` (`id`, `full_name`, `gender`) VALUES (24, 'gilad benatiya', 'M')"
+        sql = "ALTER TABLE imdb.actors ADD num_of_movies int"
         cursor.execute(sql)
 
-    # connection is not autocommit by default. So you must commit to save
-    # your changes.
     connection.commit()
 
-    with connection.cursor() as cursor:
-        sql = "select * from actors"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        print(result)
 finally:
     connection.close()
+
+
+
