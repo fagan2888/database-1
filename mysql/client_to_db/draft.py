@@ -1,8 +1,6 @@
 import pymysql
 
-actors = ['Andrew Adamson','William Addy','Seth Adkins']
-
-
+actors = ['Andrew Adamson', 'William Addy', 'Seth Adkins']
 
 # Connect to the database
 connection = pymysql.connect(host='localhost',
@@ -18,11 +16,7 @@ try:
         cursor.execute(sql)
 
         result = cursor.fetchall()
-        for i in result:
-            for g in actors:
-                if i['full_name'] == 'Andrew Adamson':
-                    print(i['full_name'] + " is in the db")
-
+        print(result)
 
     connection.commit()
 
