@@ -1,28 +1,10 @@
-from bottle import route, run, static_file, error, get, template, jinja2_view
+from bottle import route, run, static_file, error, get, template, jinja2_view,request
 from jinja2 import Template
-import pymysql
+import json
 
+import db
 
-# Connect to the database
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='19371937',
-                             db='imdb',
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
-
-try:
-    with connection.cursor() as cursor:
-        sql = "select * from actors"
-        cursor.execute(sql)
-
-        result = cursor.fetchall()
-
-
-    connection.commit()
-
-finally:
-    connection.close()
+result = db.connect_2_db()
 
 
 @route('/')
@@ -63,4 +45,5 @@ def img(filepath):
     return static_file(filepath, root="./images")
 
 
-run(host='localhost', port=5500, debug=True, reloader=True)
+run(host='localhost', port=4400, debug=True, reloader=True)
+print("server is on")
